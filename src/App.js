@@ -19,14 +19,14 @@ function App() {
                   Users
                 </Link>
               </li>
-              {/* <li>
+              <li>
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
                   to="/users"
                 >
                   Add Users
                 </Link>
-              </li> */}
+              </li>
               <li>
                 <Link
                   style={{ textDecoration: "none", color: "white" }}

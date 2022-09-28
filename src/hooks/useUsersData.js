@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useMutation, useQuery } from "react-query";
+import { QueryClient, useMutation, useQuery, useQueryClient } from "react-query";
 import { BASE_URL } from "../constants";
 
 const fetchUsers = () => {
@@ -22,6 +22,17 @@ export const useAddUsers = (onSuccess) => {
   return useMutation(addUsers, { onSuccess });
 };
 
-export const useDeleteUser = (onSuccess) =>{
-  return useMutation(deleteUser, { onSuccess })
+export const useDeleteUser = () =>{
+  const qc = new useQueryClient()
+  return useMutation(deleteUser, { 
+    onSuccess : () => {
+      qc.invalidateQueries('users')
+      // qc.setQueryData('users', (oldData) =>{
+      //   return{
+      //     ...oldData,
+      //     data: [...oldData.data, data.data],
+      //   }
+      // })
+    }
+   })
 }

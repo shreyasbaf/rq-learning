@@ -11,11 +11,7 @@ const fetchUsers = (pageNumber) => {
 };
 export const Users = () => {
   const [pageNumber, setPageNumber] = useState(1);
-
-  const onSuccess = () => {
-    alert('User Removed!')
-  };
-  const { mutate: deleteUser } = useDeleteUser(onSuccess);
+  const { mutate: deleteUser } = useDeleteUser();
   const { isLoading, data, error } = useQuery(
     ["users", pageNumber],
     () => fetchUsers(pageNumber),
@@ -35,11 +31,9 @@ export const Users = () => {
   }
   return (
     <>
-      {/* <h2 style={{ textAlign: "center" }}>Users Page</h2> */}
       <HeadingWrapper>
         <p>Name</p>
         <p>Last Name</p>
-        {/* <p>Email</p> */}
         <p>Gender</p>
         <p>Company</p>
         <p>Department</p>
@@ -47,9 +41,8 @@ export const Users = () => {
       {data?.data.map((user) => {
         return (
           <Wrapper key={user.id}>
-            <p> {user.first_name} </p> <p>{user.last_name}</p>{" "}
-            {/* <p>{user.email}</p>  */}
-            <p>{user.gender}</p> <p>{user.company}</p>{" "}
+            <p> {user.first_name} </p> <p>{user.last_name}</p>
+            <p>{user.gender}</p> <p>{user.company}</p>
             <p>{user.department}</p>
             <Button onClick={() => deleteUser(user.id)}>Delete</Button>
           </Wrapper>

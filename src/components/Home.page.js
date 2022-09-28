@@ -55,12 +55,6 @@ export const HomePage = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        {/* <Input
-          type="text"
-          placeholder="Gender"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        /> */}
         <Dropdown onChange={(e) => setGender(e.target.value)} value={gender}>
           <option value='' disabled selected>Gender</option>
           <option value="Male">Male</option>
