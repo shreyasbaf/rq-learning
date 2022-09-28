@@ -36,7 +36,7 @@ export const HomePage = () => {
   return (
     <>
       <InputWrapper>
-        <h3>Add User</h3>
+        <h3 style={{color: '#4f3074CC'}}>Add User</h3>
         <Input
           type="text"
           placeholder="Name"

@@ -35,9 +35,13 @@ export const Input = styled.input`
     padding: 6px;
     font-size: 16px;
     border: 1px solid #79589FCC;
+    color: #4f3074;
     :focus{
         border: 2px solid #79589FCC;
         outline: none;
+    }
+    ::placeholder{
+        color: #4f3074;
     }
 `;
 
@@ -69,6 +73,7 @@ export const Dropdown = styled.select`
   border-radius: 6px;
     padding: 6px;
     font-size: 16px;
+    color: #4f3074;
     border: 1px solid #79589FCC;
     :focus{
         border: 2px solid #79589FCC;

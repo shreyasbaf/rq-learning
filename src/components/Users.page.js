@@ -26,8 +26,7 @@ export const Users = () => {
   if (isLoading) {
     return (
       <Flexbox>
-        {" "}
-        <Spinner fontSize="24" />{" "}
+        <Spinner fontSize="24" />
       </Flexbox>
     );
   }
