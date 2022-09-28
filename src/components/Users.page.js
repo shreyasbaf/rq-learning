@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { BASE_URL } from "../constants";
 import { useDeleteUser } from "../hooks/useUsersData";
 import { Spinner } from "./Spinner";
-import { Button, Flexbox, HeadingWrapper, Wrapper } from "./Useres.style";
+import { Button, Flexbox, HeadingWrapper, Input, Wrapper } from "./Useres.style";
 
 const fetchUsers = (pageNumber) => {
   return axios.get(BASE_URL + `users?_limit=10&_page=${pageNumber}`);
@@ -36,7 +36,7 @@ export const Users = () => {
   }
   return (
     <>
-      <h2 style={{ textAlign: "center" }}>Users Page</h2>
+      {/* <h2 style={{ textAlign: "center" }}>Users Page</h2> */}
       <HeadingWrapper>
         <p>Name</p>
         <p>Last Name</p>
@@ -63,12 +63,12 @@ export const Users = () => {
         >
           Prev
         </Button>
-        <input
+        <Input
           type="number"
           value={pageNumber}
           min={1}
           onChange={(e) => setPageNumber(e.target.value)}
-        ></input>
+        ></Input>
         <Button
           onClick={() => setPageNumber((pageNumber) => pageNumber + 1)}
           disabled={data?.data.length < 10}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAddUsers } from "../hooks/useUsersData";
-import { Button, Input, InputWrapper } from "./Useres.style";
+import { Button, Input, InputWrapper, Dropdown } from "./Useres.style";
 
 export const HomePage = () => {
   const [name, setName] = useState("");
@@ -36,7 +36,7 @@ export const HomePage = () => {
   return (
     <>
       <InputWrapper>
-        <h2>Add Users Page</h2>
+        <h3>Add User</h3>
         <Input
           type="text"
           placeholder="Name"
@@ -55,12 +55,17 @@ export const HomePage = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Input
+        {/* <Input
           type="text"
           placeholder="Gender"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
-        />
+        /> */}
+        <Dropdown onChange={(e) => setGender(e.target.value)} value={gender}>
+          <option value='' disabled selected>Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </Dropdown>
         <Input
           type="text"
           placeholder="Company"
