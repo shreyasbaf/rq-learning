@@ -4,7 +4,6 @@ import { HomePage } from "./components/Home.page";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Users } from "./components/Users.page";
-
 const queryClient = new QueryClient();
 function App() {
   return (

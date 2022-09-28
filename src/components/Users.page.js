@@ -2,14 +2,20 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { BASE_URL } from "../constants";
+import { useDeleteUser } from "../hooks/useUsersData";
 import { Spinner } from "./Spinner";
-import { Button, Flexbox, Wrapper } from "./Useres.style";
+import { Button, Flexbox, HeadingWrapper, Wrapper } from "./Useres.style";
 
 const fetchUsers = (pageNumber) => {
   return axios.get(BASE_URL + `users?_limit=10&_page=${pageNumber}`);
 };
 export const Users = () => {
   const [pageNumber, setPageNumber] = useState(1);
+
+  const onSuccess = () => {
+    alert('User Removed!')
+  };
+  const { mutate: deleteUser } = useDeleteUser(onSuccess);
   const { isLoading, data, error } = useQuery(
     ["users", pageNumber],
     () => fetchUsers(pageNumber),
@@ -31,33 +37,36 @@ export const Users = () => {
   return (
     <>
       <h2 style={{ textAlign: "center" }}>Users Page</h2>
-      <Wrapper>
+      <HeadingWrapper>
         <p>Name</p>
         <p>Last Name</p>
-        <p>Email</p>
+        {/* <p>Email</p> */}
         <p>Gender</p>
         <p>Company</p>
         <p>Department</p>
-      </Wrapper>
+      </HeadingWrapper>
       {data?.data.map((user) => {
         return (
           <Wrapper key={user.id}>
             <p> {user.first_name} </p> <p>{user.last_name}</p>{" "}
-            <p>{user.email}</p> <p>{user.gender}</p> <p>{user.company}</p>{" "}
+            {/* <p>{user.email}</p>  */}
+            <p>{user.gender}</p> <p>{user.company}</p>{" "}
             <p>{user.department}</p>
+            <Button onClick={() => deleteUser(user.id)}>Delete</Button>
           </Wrapper>
         );
       })}
       <Flexbox>
         <Button
           onClick={() => setPageNumber((pageNumber) => pageNumber - 1)}
-          disabled={pageNumber === 1}
+          disabled={pageNumber <= 1}
         >
           Prev
         </Button>
         <input
           type="number"
           value={pageNumber}
+          min={1}
           onChange={(e) => setPageNumber(e.target.value)}
         ></input>
         <Button
