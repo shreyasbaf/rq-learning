@@ -1,0 +1,58 @@
+{
+  "superheroes": [
+    {
+      "id": 1,
+      "name": "Batman",
+      "alterEgo": "Bruce Wayne"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "alterEgo": "Clark Kent"
+    },
+    {
+      "id": 3,
+      "name": "Wonder Woman",
+      "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "Flesh",
+      "alterEgo": "By Allen",
+      "id": 4
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "label": "White"
+    },
+    {
+      "id": 2,
+      "label": "Black"
+    },
+    {
+      "id": 3,
+      "label": "Blue"
+    },
+    {
+      "id": 4,
+      "label": "Green"
+    },
+    {
+      "id": 5,
+      "label": "Red"
+    },
+    {
+      "id": 6,
+      "label": "Orange"
+    },
+    {
+      "id": 7,
+      "label": "Yellow"
+    },
+    {
+      "id": 8,
+      "label": "Pink"
+    }
+  ]
+}
