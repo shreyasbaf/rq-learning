@@ -31,18 +31,18 @@ export const InputWrapper = styled.div`
 `;
 
 export const Input = styled.input`
-    border-radius: 4px;
-    padding: 6px;
-    font-size: 16px;
-    border: 1px solid #79589FCC;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 16px;
+  border: 1px solid #79589fcc;
+  color: #4f3074;
+  :focus {
+    border: 2px solid #79589fcc;
+    outline: none;
+  }
+  ::placeholder {
     color: #4f3074;
-    :focus{
-        border: 2px solid #79589FCC;
-        outline: none;
-    }
-    ::placeholder{
-        color: #4f3074;
-    }
+  }
 `;
 
 export const Flexbox = styled.div`

@@ -41,33 +41,35 @@ export const Cars = () => {
   }
   return (
     <>
-    <p style={{padding:'0 12px', color:'#79589FCC'}}>Example for Infinite Queries, where data is feched on click of Load More button</p>
+      <p style={{ padding: "0 12px", color: "#79589FCC" }}>
+        Example for Infinite Queries, where data is feched on click of Load More
+        button
+      </p>
       <CarWrapper>
         <p>Make</p>
         <p>Model</p>
         <p>Year</p>
       </CarWrapper>
       {data?.pages.map((group, i) => {
-          return (
-            <Fragment key={i}>
-              {group.data.map(car => (
-                <CarDataWrapper key={car.id}>
-                  <p>
-                  {car.make}
-                  </p>
-                  <p>
-                   {car.model}
-                  </p>
-                  <p>
-                    {car.year}
-                  </p>
-                </CarDataWrapper>
-              ))}
-            </Fragment>
-          )
-        })}
-      <Button onClick={() => fetchNextPage()} disabled={!hasNextPage}>Load More</Button>
-      <div> {isFetching && !isFetchingNextPage ?  <Spinner fontSize="24" /> : null }</div>
+        return (
+          <Fragment key={i}>
+            {group.data.map((car) => (
+              <CarDataWrapper key={car.id}>
+                <p>{car.make}</p>
+                <p>{car.model}</p>
+                <p>{car.year}</p>
+              </CarDataWrapper>
+            ))}
+          </Fragment>
+        );
+      })}
+      <Button onClick={() => fetchNextPage()} disabled={!hasNextPage}>
+        Load More
+      </Button>
+      <div>
+        {" "}
+        {isFetching && !isFetchingNextPage ? <Spinner fontSize="24" /> : null}
+      </div>
     </>
   );
 };
