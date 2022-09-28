@@ -4,6 +4,7 @@ import { HomePage } from "./components/Home.page";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Users } from "./components/Users.page";
+import { Cars } from "./components/Cars.page";
 const queryClient = new QueryClient();
 function App() {
   return (
@@ -18,12 +19,21 @@ function App() {
                   Users{" "}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   style={{ textDecoration: "none", color: "white" }}
                   to="/users"
                 >
                   Add Users
+                </Link>
+              </li> */}
+
+              <li>
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to="/cars"
+                >
+                  Cars
                 </Link>
               </li>
             </ul>
@@ -31,6 +41,9 @@ function App() {
           <Switch>
             <Route path="/users">
               <HomePage />
+            </Route>
+            <Route path='/cars'>
+              <Cars />
             </Route>
             <Route path="/">
               <Users />
