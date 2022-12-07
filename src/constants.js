@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://sugar-json-server.herokuapp.com/'
+export const BASE_URL = 'https://remarkable-wandering-city.glitch.me/' //'https://sugar-json-server.herokuapp.com/'
